@@ -23,17 +23,6 @@ light.position.set(-1, 2, 4);
 scene.background = new THREE.Color(0xaaaaaa);
 scene.add(light);
 
-const objects = [];
-const spread = 15;
-
-function addObject(x: number, y: number, obj: THREE.Object3D) {
-  obj.position.x = x * spread;
-  obj.position.y = y * spread;
-
-  scene.add(obj);
-  objects.push(obj);
-}
-
 function makeInstance(geometry: THREE.BoxGeometry, color: number, x: number) {
   const material = new THREE.MeshPhongMaterial({ color });
   const cube = new THREE.Mesh(geometry, material);
