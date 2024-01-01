@@ -12,14 +12,19 @@ const light = new THREE.PointLight(0xffffff, 500);
 const targetVector = new THREE.Vector3(0, 1.65, 0);
 camera.position.set(0, 2, 2);
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.autoRotate = true;
 controls.target.set(targetVector.x, targetVector.y, targetVector.z);
 const objects = [];
 
 function moveToHead() {
+  controls.autoRotate = false;
   new TWEEN.Tween(camera.position).to({ x: 0, y: 1.65, z: 0.5 }, 1000).start();
+  new TWEEN.Tween(controls.target).to({ x: 0, y: 1.65, z: 0 }, 1000).start();
 }
 
 function lookAtFeet() {
+  controls.autoRotate = false;
+  new TWEEN.Tween(camera.position).to({ x: 0, y: 2, z: 2 }, 1000).start();
   new TWEEN.Tween(controls.target).to({ x: 0, y: 0, z: 0 }, 1000).start();
 }
 
