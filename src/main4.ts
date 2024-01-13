@@ -21,7 +21,7 @@ scene.add(secondLight);
 scene.add(camera);
 
 gltfLoader.load(
-  "bedroom.glb",
+  "niceroom.glb",
   function (gltf) {
     console.log(gltf);
     scene.add(gltf.scene);
